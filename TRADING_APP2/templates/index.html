@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KING ALAMI1</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 KING ALAMI</h1>
+
+        <div class="card">
+            <h2>🤖 Bot Status</h2>
+            <p><strong>Status:</strong> {{ data.get("status", "N/A") }}</p>
+            <p><strong>Symbol:</strong> {{ data.get("symbol", "N/A") }}</p>
+            <p><strong>Last Update:</strong> {{ data.get("last_update", "N/A") }}</p>
+        </div>
+
+        <div class="card">
+            <h2>📊 Market Overview</h2>
+            <p><strong>Session:</strong> {{ data.get("session", "N/A") }}</p>
+            <p><strong>Spread:</strong> {{ data.get("spread", "N/A") }}</p>
+            <p><strong>Market Type:</strong> {{ data.get("market_type", "N/A") }}</p>
+            <p><strong>Regime:</strong> {{ data.get("regime", "N/A") }}</p>
+            <p><strong>H1 Direction:</strong> {{ data.get("h1_direction", "N/A") }}</p>
+            <p><strong>D1 Context:</strong> {{ data.get("d1_context", "N/A") }}</p>
+        </div>
+
+        <div class="card">
+            <h2>🧠 Setup Analysis</h2>
+            <p><strong>Trigger:</strong> {{ data.get("trigger", "N/A") }}</p>
+            <p><strong>Trigger Quality:</strong> {{ data.get("trigger_quality", "N/A") }}</p>
+            <p><strong>Alignment:</strong> {{ data.get("alignment", "N/A") }}</p>
+            <p><strong>Liquidity:</strong> {{ data.get("liquidity", "N/A") }}</p>
+            <p><strong>Location Zone:</strong> {{ data.get("location_zone", "N/A") }} ({{ data.get("location_pct", "N/A") }}%)</p>
+            <p><strong>Setup Class:</strong> {{ data.get("setup_class", "N/A") }}</p>
+            <p><strong>Confidence:</strong> {{ data.get("confidence", "N/A") }}/100</p>
+        </div>
+
+        <div class="card highlight">
+            <h2>🎯 Final Decision</h2>
+            <p><strong>Decision:</strong> {{ data.get("decision", "WAIT") }}</p>
+            <p><strong>Decision Note:</strong> {{ data.get("decision_note", "N/A") }}</p>
+            <p><strong>BUY Score:</strong> {{ data.get("buy_score", "N/A") }}</p>
+            <p><strong>SELL Score:</strong> {{ data.get("sell_score", "N/A") }}</p>
+        </div>
+
+        <div class="card">
+            <h2>💼 Current Trade</h2>
+            <p><strong>Current Trade:</strong> {{ data.get("current_trade", "NONE") }}</p>
+            <p><strong>Entry:</strong> {{ data.get("entry", 0) }}</p>
+            <p><strong>SL:</strong> {{ data.get("sl", 0) }}</p>
+            <p><strong>TP:</strong> {{ data.get("tp", 0) }}</p>
+            <p><strong>RR:</strong> {{ data.get("rr", 0) }}</p>
+        </div>
+
+        <div class="card profit">
+            <h2>💰 Performance</h2>
+            <p><strong>Profit Today:</strong> {{ data.get("profit_today", 0) }} $</p>
+        </div>
+    </div>
+</body>
+</html>
