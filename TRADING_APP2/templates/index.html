@@ -3,62 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KING ALAMI1</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <title>🚀THE KING ALAMI 🔥</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: rgba(255,255,255,0.05);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.15);
+            margin-top: 30px;
+        }
+
+        h1 {
+            color: gold;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #ccc;
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.07);
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 14px;
+            text-align: left;
+            font-size: 18px;
+            border-left: 5px solid gold;
+        }
+
+        .label {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .value {
+            color: #ffffff;
+        }
+
+        .footer {
+            margin-top: 25px;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .live {
+            color: #00ff88;
+            font-weight: bold;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0.4; }
+        }
+
+        .decision-buy {
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .decision-sell {
+            color: #ff5f5f;
+            font-weight: bold;
+        }
+
+        .decision-wait {
+            color: #ffd700;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>🚀 KING ALAMI</h1>
+        <h1>🚀THE KING ALAMI 🔥</h1>
+        <p class="subtitle">Live Trading Bot Dashboard <span class="live">● LIVE</span></p>
 
-        <div class="card">
-            <h2>🤖 Bot Status</h2>
-            <p><strong>Status:</strong> {{ data.get("status", "N/A") }}</p>
-            <p><strong>Symbol:</strong> {{ data.get("symbol", "N/A") }}</p>
-            <p><strong>Last Update:</strong> {{ data.get("last_update", "N/A") }}</p>
-        </div>
+        <div class="card"><span class="label">⏰ Time:</span> <span class="value" id="time">Loading...</span></div>
+        <div class="card"><span class="label">🌍 Session:</span> <span class="value" id="session">Loading...</span></div>
+        <div class="card"><span class="label">📌 Decision:</span> <span class="value" id="decision">Loading...</span></div>
+        <div class="card"><span class="label">🎯 Confidence:</span> <span class="value" id="confidence">Loading...</span></div>
+        <div class="card"><span class="label">⚡ Trigger:</span> <span class="value" id="trigger">Loading...</span></div>
+        <div class="card"><span class="label">💧 Liquidity:</span> <span class="value" id="liquidity">Loading...</span></div>
+        <div class="card"><span class="label">📍 Zone:</span> <span class="value" id="zone">Loading...</span></div>
+        <div class="card"><span class="label">📊 Spread:</span> <span class="value" id="spread">Loading...</span></div>
+        <div class="card"><span class="label">📈 Market Type:</span> <span class="value" id="market_type">Loading...</span></div>
+        <div class="card"><span class="label">🧠 Regime:</span> <span class="value" id="regime">Loading...</span></div>
+        <div class="card"><span class="label">🕯 H1 Direction:</span> <span class="value" id="h1_direction">Loading...</span></div>
+        <div class="card"><span class="label">🏁 Setup Class:</span> <span class="value" id="setup_class">Loading...</span></div>
 
-        <div class="card">
-            <h2>📊 Market Overview</h2>
-            <p><strong>Session:</strong> {{ data.get("session", "N/A") }}</p>
-            <p><strong>Spread:</strong> {{ data.get("spread", "N/A") }}</p>
-            <p><strong>Market Type:</strong> {{ data.get("market_type", "N/A") }}</p>
-            <p><strong>Regime:</strong> {{ data.get("regime", "N/A") }}</p>
-            <p><strong>H1 Direction:</strong> {{ data.get("h1_direction", "N/A") }}</p>
-            <p><strong>D1 Context:</strong> {{ data.get("d1_context", "N/A") }}</p>
-        </div>
-
-        <div class="card">
-            <h2>🧠 Setup Analysis</h2>
-            <p><strong>Trigger:</strong> {{ data.get("trigger", "N/A") }}</p>
-            <p><strong>Trigger Quality:</strong> {{ data.get("trigger_quality", "N/A") }}</p>
-            <p><strong>Alignment:</strong> {{ data.get("alignment", "N/A") }}</p>
-            <p><strong>Liquidity:</strong> {{ data.get("liquidity", "N/A") }}</p>
-            <p><strong>Location Zone:</strong> {{ data.get("location_zone", "N/A") }} ({{ data.get("location_pct", "N/A") }}%)</p>
-            <p><strong>Setup Class:</strong> {{ data.get("setup_class", "N/A") }}</p>
-            <p><strong>Confidence:</strong> {{ data.get("confidence", "N/A") }}/100</p>
-        </div>
-
-        <div class="card highlight">
-            <h2>🎯 Final Decision</h2>
-            <p><strong>Decision:</strong> {{ data.get("decision", "WAIT") }}</p>
-            <p><strong>Decision Note:</strong> {{ data.get("decision_note", "N/A") }}</p>
-            <p><strong>BUY Score:</strong> {{ data.get("buy_score", "N/A") }}</p>
-            <p><strong>SELL Score:</strong> {{ data.get("sell_score", "N/A") }}</p>
-        </div>
-
-        <div class="card">
-            <h2>💼 Current Trade</h2>
-            <p><strong>Current Trade:</strong> {{ data.get("current_trade", "NONE") }}</p>
-            <p><strong>Entry:</strong> {{ data.get("entry", 0) }}</p>
-            <p><strong>SL:</strong> {{ data.get("sl", 0) }}</p>
-            <p><strong>TP:</strong> {{ data.get("tp", 0) }}</p>
-            <p><strong>RR:</strong> {{ data.get("rr", 0) }}</p>
-        </div>
-
-        <div class="card profit">
-            <h2>💰 Performance</h2>
-            <p><strong>Profit Today:</strong> {{ data.get("profit_today", 0) }} $</p>
+        <div class="footer">
+            Powered by Python + MT5 + Telegram 😎
         </div>
     </div>
+
+    <script>
+        async function fetchStatus() {
+            try {
+                const response = await fetch('/status?t=' + new Date().getTime());
+                const data = await response.json();
+
+                document.getElementById("time").innerText = data.time || "N/A";
+                document.getElementById("session").innerText = data.session || "N/A";
+                document.getElementById("confidence").innerText = (data.confidence ?? "N/A") + (data.confidence !== undefined ? "/100" : "");
+                document.getElementById("trigger").innerText = data.trigger || "N/A";
+                document.getElementById("liquidity").innerText = data.liquidity || "N/A";
+                document.getElementById("zone").innerText = data.location_zone || "N/A";
+                document.getElementById("spread").innerText = data.spread || "N/A";
+                document.getElementById("market_type").innerText = data.market_type || "N/A";
+                document.getElementById("regime").innerText = data.regime || "N/A";
+                document.getElementById("h1_direction").innerText = data.h1_direction || "N/A";
+                document.getElementById("setup_class").innerText = data.setup_class || "N/A";
+
+                const decisionEl = document.getElementById("decision");
+                const decision = data.decision || "N/A";
+                decisionEl.innerText = decision;
+
+                decisionEl.className = "value";
+                if (decision === "BUY") {
+                    decisionEl.classList.add("decision-buy");
+                } else if (decision === "SELL") {
+                    decisionEl.classList.add("decision-sell");
+                } else {
+                    decisionEl.classList.add("decision-wait");
+                }
+
+            } catch (error) {
+                console.log("Refresh error:", error);
+            }
+        }
+
+        fetchStatus(); // first load
+        setInterval(fetchStatus, 2000); // refresh every 2 sec
+    </script>
+
 </body>
 </html>
