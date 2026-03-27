@@ -13,23 +13,12 @@ def load_status():
     try:
         with open(STATUS_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
-    except Exception as e:
-        print("LOAD ERROR:", e)
+    except:
         return {}
-
-def save_status(data):
-    try:
-        with open(STATUS_FILE, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=4)
-        return True
-    except Exception as e:
-        print("SAVE ERROR:", e)
-        return False
 
 @app.route("/")
 def home():
-    data = load_status()
-    return render_template("index.html", data=data)
+    return render_template("index.html")
 
 @app.route("/status")
 def status():
@@ -37,17 +26,13 @@ def status():
 
 @app.route("/update_status", methods=["POST"])
 def update_status():
-    data = request.get_json()
-
-    if not data:
-        return jsonify({"success": False, "error": "No data received"}), 400
-
-    ok = save_status(data)
-
-    if ok:
-        return jsonify({"success": True})
-    else:
-        return jsonify({"success": False, "error": "Save failed"}), 500
+    try:
+        data = request.json
+        with open(STATUS_FILE, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=4)
+        return {"success": True, "message": "Status updated"}
+    except Exception as e:
+        return {"success": False, "error": str(e)}
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
