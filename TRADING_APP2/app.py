@@ -27,7 +27,7 @@ def save_status(data):
         return False
 
 @app.route("/")
-def home(): 
+def home():
     data = load_status()
     return render_template("index.html", data=data)
 
